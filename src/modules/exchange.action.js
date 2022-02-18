@@ -2,6 +2,7 @@ import {getLatesPriceOfCurrAPI, getPrevPriceOfCurrAPI, exchangeCurrAPI} from './
 import types from './exchange.types';
 
 export const loadPriceOfCurrAction = payload => {
+    console.log(payload)
     return {
         types: types.LOAD_CURR,
         payload: payload.rates
@@ -35,6 +36,7 @@ export const setErrorAction = err =>{
 }
 
 export const getLatesPriceOfCurrAction = (curr) => (dispatch, getState)=> {
+    console.log(curr)
    return getLatesPriceOfCurrAPI(curr)
             .then(resp=>dispatch(loadPriceOfCurrAction(resp)))
             .catch(err=> dispatch(setErrorAction(err)))

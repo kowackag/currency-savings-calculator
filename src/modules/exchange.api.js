@@ -12,19 +12,19 @@ export const handleErrors = (resp) => {
     return resp;
 }
 
-export const getLatesPriceOfCurr = (curr) => {
+export const getLatesPriceOfCurrAPI = (curr) => {
     return fetch(`${url}latest?access_key=${apiKey}&symbols=${curr}`)
         .then(resp => handleErrors(resp))
         .then(resp=>resp.json())
 }
 
-export const getPrevPriceOfCurr = (curr, date) => {
+export const getPrevPriceOfCurrAPI = (curr, date) => {
     return fetch(`${url}${date}?access_key=${apiKey}&symbols=${curr}`)
         .then(resp => handleErrors(resp))
         .then(resp=>resp.json())
 }
 
-export const exchangeCurr = (fromCurr, toCurr, amount) => {
+export const exchangeCurrAPI = (fromCurr, toCurr, amount) => {
     return fetch(`${url}convert?access_key=${apiKey}&from=${fromCurr}&to=${toCurr}&amount=${amount}`)
         .then(resp => handleErrors(resp))
         .then(resp=>resp.json())

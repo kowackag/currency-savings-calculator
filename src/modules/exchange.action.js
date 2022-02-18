@@ -7,13 +7,22 @@ export const loadPriceOfCurrAction = payload => {
         payload: payload.rates
     }
 } 
+export const loadPrevPriceOfCurrAction = payload => {
+    return {
+        types: types.LOAD_PREVCURR,
+        payload: {
+            date: payload.date,
+            rates: payload.rates
+        }
+    }
+} 
 
 export const loadExchangeCurrAction = payload => {
     return {
         types: types.LOAD_EXCHANGE,
         payload : {
             result: payload.result,
-            rate:payload.info.rate,
+            rates:payload.info.rates,
         }
     }
 }
@@ -33,7 +42,7 @@ export const getLatesPriceOfCurrAction = (curr) => (dispatch, getState)=> {
 
 export const getPrevPriceOfCurrAction = (curr, date) => (dispatch, getState)=> {
     return getPrevPriceOfCurrAPI(curr, date)
-             .then(resp=>dispatch(loadPriceOfCurrAction(resp)))
+             .then(resp=>dispatch(loadPrevPriceOfCurrAction(resp)))
              .catch(err=> dispatch(setErrorAction(err)))
 }
 

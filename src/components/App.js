@@ -1,24 +1,18 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {getLatesPriceOfCurrAction, getPrevPriceOfCurrAction, getExchangeCurrAction} from '../modules/exchange.action';
+import WalletForm from './ExchangeForm/WalletForm';
+import StyledApp from './App.styled';
 
 const App = () => {
-    const latestPrice = useSelector(props=>props.latestPrice);
-    const dispatch = useDispatch();
+    // const latestPrice = useSelector(props=>props.latestPrice);
 
-   const handleSubmit =  (e) => {
-        e.preventDefault;
-        dispatch(getLatesPriceOfCurrAction('USD')); 
-    }
-    console.log(latestPrice)
+    // console.log(latestPrice)
     return(
-        <>
-            <h1>Kalkulator walutowy</h1>
-            {/* <ExchangeForm/> */}
-            <form onSubmit={handleSubmit}>
-                <input type='submit' value='send'/>
-            </form>
-        </>
+        <StyledApp>
+            <h1>Kalkulator oszczędności walutowych</h1>
+            <WalletForm/>
+        </StyledApp>
 
     )
 }

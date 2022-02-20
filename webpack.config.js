@@ -11,7 +11,7 @@ module.exports = function(env = {}) {
     // w jakim trybie uruchomić webpack-a
 
     return  {
-        entry: './src/app.js',
+        entry: ['whatwg-fetch','./src/app.js'],
         // definiuje plik wejściowy
         mode: isProd ? 'production' : 'development',
         // definiuje tryb pracy webpack-a
@@ -65,6 +65,54 @@ module.exports = function(env = {}) {
                         }
                     }
                     // tym razem tylko jeden loader
+                },
+                {
+                    test: /\.css$/,
+                //     // określam jakie pliki 
+                //     // będą brane pod uwagę
+                    exclude: /node_modules/,
+                //     // określam wykluczenia
+                    use: [
+                        isProd ? CssWebpackPlugin.loader : 'style-loader',  
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: isProd ? false : true,
+                            // ustawiam identyfikację kodu źródłowego
+                        },
+                    },
+                ]
+                //     // określam jaki [loader]
+                //     // ma być wykorzystany
+                },
+                {
+                    test: /\.scss$/,
+                    // określam jakie pliki 
+                    // będą brane pod uwagę
+                    // exclude: /node_modules/,
+                    // określam wykluczenia
+                    use: [
+                        isProd ? CssWebpackPlugin.loader : 'style-loader', 
+                        // 'css-loader', 
+                        // 'sass-loader',
+                        { 
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: isProd ? false : true,
+                            }
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: isProd ? false : true,
+                                sassOptions: {
+                                    outputStyle: isProd ? 'compressed' : 'expanded'
+                                }
+                            }
+                        }
+                    ]
+                    // określam jaki [loader]
+                    // ma być wykorzystany
                 },
             ]
         },

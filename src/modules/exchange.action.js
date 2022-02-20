@@ -4,13 +4,13 @@ import types from './exchange.types';
 export const loadPriceOfCurrAction = payload => {
     console.log(payload)
     return {
-        types: types.LOAD_CURR,
+        type: types.LOAD_CURR,
         payload: payload.rates
     }
 } 
 export const loadPrevPriceOfCurrAction = payload => {
     return {
-        types: types.LOAD_PREVCURR,
+        type: types.LOAD_PREVCURR,
         payload: {
             date: payload.date,
             rates: payload.rates
@@ -20,7 +20,7 @@ export const loadPrevPriceOfCurrAction = payload => {
 
 export const loadExchangeCurrAction = payload => {
     return {
-        types: types.LOAD_EXCHANGE,
+        type: types.LOAD_EXCHANGE,
         payload : {
             result: payload.result,
             rates:payload.info.rates,
@@ -36,7 +36,6 @@ export const setErrorAction = err =>{
 }
 
 export const getLatesPriceOfCurrAction = (curr) => (dispatch, getState)=> {
-    console.log(curr)
    return getLatesPriceOfCurrAPI(curr)
             .then(resp=>dispatch(loadPriceOfCurrAction(resp)))
             .catch(err=> dispatch(setErrorAction(err)))

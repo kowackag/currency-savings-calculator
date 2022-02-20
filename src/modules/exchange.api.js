@@ -1,11 +1,9 @@
-// import apiKey from './../../apiKey';
-const apiKey = '4570ac1e4dc6c35eb46391296b03ad64';
+import apiKey from './../../apiKey';
+
 const url ='http://api.exchangeratesapi.io/v1/';
 
 const handleErrors = (resp) => {
-    console.log('handleError');
     if (!resp.ok) {
-        console.log(resp.status)
         if (resp.status === 429) {
             return Promise.reject('LINIT EXCEEDED')
         }
@@ -15,8 +13,8 @@ const handleErrors = (resp) => {
 }
 
 export const getLatesPriceOfCurrAPI = (curr)=> {
-    return fetch(`http://api.exchangeratesapi.io/v1/latest?access_key=4570ac1e4dc6c35eb46391296b03ad64&symbols=USD`)
-    .then(resp=>handleErrors(resp))
+    return fetch(`${url}latest?access_key=${apiKey}&symbols=${curr}`)
+    .then(resp => handleErrors(resp))
     .then(resp=>resp.json())
 }
 
@@ -31,4 +29,3 @@ export const exchangeCurrAPI = (fromCurr, toCurr, amount) => {
         .then(resp => handleErrors(resp))
         .then(resp=>resp.json())
 }
-

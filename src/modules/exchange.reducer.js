@@ -1,4 +1,3 @@
-import React from 'react';
 import types from './exchange.types';
 
 const initState = {
@@ -26,8 +25,7 @@ const reducerAPI = (state=initState, action) => {
             return {...state, error: action.payload}
         }
         default:
-            return state;
-        
+            return state;      
     }
 }
 

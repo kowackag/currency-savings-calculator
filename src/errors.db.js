@@ -1,4 +1,4 @@
-const errorsDB = [
+export const errorsDB = [
    { code: 404, desc: 'The requested resource does not exist.'},
    { code: 101, desc: 'No API Key was specified or an invalid API Key was specified.'},
    { code: 103, desc: 'The requested API endpoint does not exist.'},

@@ -1,10 +1,9 @@
 export default {
-    colorBgcDark: '188, 219, 239',
-    colorBgcLight: '229, 241, 249',
+    colorBgcDark: '240, 247, 251',
+    colorBgcLight: '255, 255, 252',
     // colorShadowDark: '200,215,240',
-    // colorShadowLight: '247, 247, 250',
-    colorFontDark: '78, 84, 92',
-    colorFontDark: '4, 21, 98',
-    colorContrast:'9, 93, 196'
+    colorLine: '178, 213, 237',
+    colorFont:'0, 115, 198',
+    colorFontDark: '9, 93, 196'  
 }
 

@@ -39,6 +39,10 @@ const GlobalStyle = createGlobalStyle`
         font-size: 10px;
     }
     body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
         font-family: "Roboto", Verdana, sans-serif;
         font-size: 1.6rem;
         color: rgb(var(--color-font));

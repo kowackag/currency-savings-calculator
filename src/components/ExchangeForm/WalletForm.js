@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import Input from './../Input/Input';
 import Button from './../Button/Button';
 import Submit from './../Submit/Submit';
+import Dropdown from './../Dropdown/Dropdown';
 
 const WalletForm = () => {
     const initState = {
@@ -20,13 +21,14 @@ const WalletForm = () => {
             ...state, [e.target.name]: e.target.value
         })
     }
-
+    
     const [state, setState] = useState(initState)
     const dispatch = useDispatch();
-
+    console.log(state);
     const handleSubmit =  (e) => {
+        console.log('submit')
         e.preventDefault();
-        // dispatch(getLatesPriceOfCurrAction('USD')); 
+        // dispatch(getLatesPriceOfCurrAction('PLN')); 
     }
     
     return (
@@ -39,7 +41,7 @@ const WalletForm = () => {
                     </div>
                     <div>
                         <label htmlFor="curr">W walucie</label>
-                        <Input id="curr" onChange={onChange} name="curr" value={state.curr}/>
+                        {/* <Dropdown id="curr" onChange={onChange} name="curr" value={state.curr}/> */}
                     </div>
                     <div>
                         <label htmlFor="date">Data zakupu</label>
@@ -47,10 +49,10 @@ const WalletForm = () => {
                     </div>
                     <div>
                         <label htmlFor="price">Cena zakupu</label>
-                        <Input id="price" onChange={onChange} name="price"  value={state.price}/>
+                        <Input id="price" onChange={onChange} name="price" value={state.price}/>
                     </div>
-                    <Button>Wyczyść</Button>
-                    <Submit type="submit">Dodaj</Submit>
+                    <Button onClick={()=>setState(initState)}>Wyczyść</Button>
+                    <Submit type="submit" value="Dodaj">Dodaj</Submit>
             </form>
         </StyledExchangeForm>
     )

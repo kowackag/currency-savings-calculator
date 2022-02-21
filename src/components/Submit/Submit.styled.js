@@ -11,6 +11,16 @@ const DefaultStyledSubmit = styled.label`
     position: relative;
     cursor: pointer;
 
+    & input {
+        position: relative;
+        border: none;
+        background-color: transparent;
+        color: transparent;
+        font-size: 1.6rem;
+        font-weight: bold;
+        z-index: -1; 
+    }
+
      &::before {
         content: 'Dodaj';
         position: absolute;
@@ -23,13 +33,15 @@ const DefaultStyledSubmit = styled.label`
         background-color: rgb(var(--color-font));
         color: white;
         opacity:0;
-        transition: opacity 0.6s ease-out; 
-        will-change: opacity;      
+        transition: opacity 0.4s ease-out; 
+        will-change: opacity;     
+        z-index: 2; 
     }
 
     &:hover::before {
         opacity:1;
     }
+
 
 `
 

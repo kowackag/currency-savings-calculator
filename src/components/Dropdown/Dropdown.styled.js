@@ -6,10 +6,11 @@ const DefaultStyledDropdown = styled.div`
     --color-gamma: ${props=>props.theme.colorShadowLight};
     --color-font: ${props=>props.theme.colorFont};
    
-    font-size: 1.2rem;
     position: relative;
+    height: 4rem;
     border: 1px solid rgb(var(--color-line));
     background-color: white;
+    font-size: 1.2rem;
 
     & .form__value {
         position: relative;

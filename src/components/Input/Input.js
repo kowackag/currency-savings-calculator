@@ -2,10 +2,10 @@ import React from 'react';
 import StyledInput from './Input.styled';
 
 const Input = (props) => {
-    const {value, name, onChange, placeholder} = props;
+    const {value, step, max, name, type, onChange, placeholder} = props;
     
     return( 
-        <StyledInput name={name} placeholder={placeholder} value={value || ''} onChange={onChange}/>
+        <StyledInput type={type} step={step} name={name} max={max} value={value || ''} onChange={onChange}/>
     )
 }
 

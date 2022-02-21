@@ -1,6 +1,7 @@
 import React, {createContext, useEffect, useState} from 'react';
 import StyledExchangeForm from './WalletForm.styled';
 import {getLatesPriceOfCurrAction, getPrevPriceOfCurrAction, getExchangeCurrAction} from '../../modules/exchange.action';
+import { getToday } from '../../helpers';
 import { useDispatch } from 'react-redux';
 import Input from './../Input/Input';
 import Button from './../Button/Button';
@@ -15,13 +16,14 @@ const WalletForm = () => {
         date:'',
         price:'' 
     }
+   
+    const today = getToday();
 
-    const onChange = async e => {
+    const onChange = e => {
         e.preventDefault();
-        await setState({
+        setState({
             ...state, [e.target.name]: e.target.value
         })
-        console.log(state)
     }
     
     const [state, setState] = useState(initState);
@@ -29,7 +31,7 @@ const WalletForm = () => {
     const handleSubmit =  (e) => {
         console.log('submit')
         e.preventDefault();
-        dispatch(getLatesPriceOfCurrAction('PLN')); 
+        // dispatch(getLatesPriceOfCurrAction('PLN')); 
     }
     
     const onChoose = e => {
@@ -37,34 +39,29 @@ const WalletForm = () => {
         setState({...state, curr: e.target.dataset.code})
     }
 
-    const onInput = e => {
-        e.preventdefault();
-        console.log('input')
-    }
-
     useEffect(() => {
         if (state.curr && state.date) {
             setState({...state, price: 21});
         }}, [state.date, state.curr])
-
+    
     return (
         <StyledExchangeForm>
             <form onSubmit={handleSubmit}>
-                <div>
+                <div className="box">
                     <label htmlFor="amount">Posiadam</label>
-                    <Input id="amount" onChange={onChange} name="amount" value={state.amount}/>
+                    <Input type="number" step=".01" id="amount" onChange={onChange} name="amount" value={state.amount}/>
                 </div>
-                <div>
-                    <label htmlFor="curr">W walucie</label>
-                    <Dropdown id="curr" items={currencyDB} onChange={onChoose} name="curr" value={state.curr}/>
+                <div className="box">
+                    <label>Waluta</label>
+                    <Dropdown items={currencyDB} onChange={onChoose} name="curr" value={state.curr}/>
                 </div>
-                <div>
+                <div className="box">
                     <label htmlFor="date">Data zakupu</label>
-                    <Input id="date" placeholder="RRRR-MM-DD" onChange={onChange} name="date" value={state.date}/>
+                    <Input type="date" id="date" max={today} onChange={onChange} name="date" value={state.date}/>
                 </div>
-                <div>
+                <div className="box">
                     <label htmlFor="price">Cena zakupu</label>
-                    <Input id="price" onChange={onChange} name="price" value={state.price}/>
+                    <Input type="number" step=".001" id="price" onChange={onChange} name="price" value={state.price}/>
                 </div>
                 <Button onClick={()=>setState(initState)}>Wyczyść</Button>
                 <Submit type="submit" value="Dodaj">Dodaj</Submit>

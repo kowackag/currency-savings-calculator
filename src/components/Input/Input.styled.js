@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 const DefaultStyledInput = styled.input`
-    width: 100%;
     display:inline-block;
-    padding: 1rem 1rem;
+    padding: 1rem;
+    height: 4rem;
     outline: none;
     border: 1px solid rgb(var(--color-line));
     background-color: white;

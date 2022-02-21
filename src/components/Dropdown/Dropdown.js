@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import StyledDropdown from './Dropdown.styled';
 
 const Dropdown = (props) => {
-    const {name, value, items, id, onChange} = props;
+    const {name, value, items, onChange} = props;
     const [isActive, setIsActive] = useState(false);
     const [isFocus, setIsFocus] = useState(false);
     const [isOnMouse, setIsOnMouse] = useState(false);

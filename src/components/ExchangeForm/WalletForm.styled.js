@@ -12,6 +12,10 @@ const DefaultStyledWalletForm = styled.section`
         column-gap: 2rem;
         row-gap: 4rem;
     }
+
+    & .box {
+        display: grid;
+    }
 `
 
 const StyledWalletForm = styled(DefaultStyledWalletForm)(props=>props.style)

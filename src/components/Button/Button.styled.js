@@ -36,4 +36,3 @@ const DefaultStyledButton = styled.div`
 const StyledButton = styled(DefaultStyledButton)(props=>props.style);
 
 export default StyledButton;
-

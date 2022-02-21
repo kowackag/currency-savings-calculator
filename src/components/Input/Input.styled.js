@@ -7,8 +7,6 @@ const DefaultStyledInput = styled.input`
     outline: none;
     border: 1px solid rgb(var(--color-line));
     background-color: white;
-    box-shadow: inset 12px 12px 36px white, inset -12px -12px 36px white;
-    font-size: 1.4rem;
     color: rgb(var(--color-font));
 
     &:-webkit-autofill {

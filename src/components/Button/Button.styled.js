@@ -24,7 +24,7 @@ const DefaultStyledButton = styled.div`
         background-color: rgb(var(--color-font));
         color: white;
         opacity:0;
-        transition: opacity 0.8s ease-out; 
+        transition: opacity 0.6s ease-out; 
         will-change: opacity;      
     }
 

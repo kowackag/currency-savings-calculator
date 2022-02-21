@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const DefaultStyledSubmit = styled.label`
     grid-column: 4/5;
     padding: 1rem;
-    border: 1px solid rgb(var(--color-line));
+    border: 2px solid rgb(var(--color-font));
     background-color: white;
     color: rgb(var(--color-font));
     font-weight: bold;
@@ -23,7 +23,7 @@ const DefaultStyledSubmit = styled.label`
         background-color: rgb(var(--color-font));
         color: white;
         opacity:0;
-        transition: opacity 0.5s ease-out; 
+        transition: opacity 0.6s ease-out; 
         will-change: opacity;      
     }
 

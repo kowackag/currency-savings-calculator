@@ -19,8 +19,8 @@ export const getLatesPriceOfCurrAPI = (curr)=> {
 }
 
 export const getPrevPriceOfCurrAPI = (curr, date) => {
-    return fetch(`${url}${date}?access_key=${apiKey}&symbols=${curr}`)
-        .then(resp => console.log(resp) )
+    return fetch(`${url}${date}?access_key=${apiKey}&symbols=${curr},PLN`)
+        .then(resp => handleErrors(resp) )
         .then(resp=>resp.json())
 }
 

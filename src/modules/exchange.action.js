@@ -47,6 +47,12 @@ export const getPrevPriceOfCurrAction = (curr, date) => (dispatch, getState)=> {
              .catch(err=> dispatch(setErrorAction(err)))
 }
 
+// export const getPrevPriceOfCurrAction = (curr, date) => (dispatch, getState)=> {
+//     return getPrevPriceOfCurrAPI(curr, date)
+//              .then(resp=>dispatch(loadPrevPriceOfCurrAction(resp)))
+//              .catch(err=> dispatch(setErrorAction(err)))
+// }
+
 export const getExchangeCurrAction = (fromCurr, toCurr, amount) => (dispatch, getState)=> {
     return exchangeCurrAPI(fromCurr, toCurr, amount)
              .then(resp=>dispatch(loadExchangeCurrAction(resp)))

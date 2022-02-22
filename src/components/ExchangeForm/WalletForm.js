@@ -2,7 +2,7 @@ import React, {createContext, useEffect, useState} from 'react';
 import StyledExchangeForm from './WalletForm.styled';
 import {getLatesPriceOfCurrAction, getPrevPriceOfCurrAction, getExchangeCurrAction} from '../../modules/exchange.action';
 import { getToday } from '../../helpers';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Input from './../Input/Input';
 import Button from './../Button/Button';
 import Submit from './../Submit/Submit';
@@ -14,36 +14,50 @@ const WalletForm = () => {
         curr: '', 
         amount: 0, 
         date:'',
-        price:'' 
+        price:''
     }
-   
     const today = getToday();
-
-    const onChange = e => {
-        e.preventDefault();
-        setState({
-            ...state, [e.target.name]: e.target.value
-        })
-    }
-    
     const [state, setState] = useState(initState);
     const dispatch = useDispatch();
-    const handleSubmit =  (e) => {
-        console.log('submit')
+    const price = useSelector(props=>props.prevPrice.rates)[state.curr];
+    
+    const onChange = e => {
         e.preventDefault();
-        // dispatch(getLatesPriceOfCurrAction('PLN')); 
+        setState({...state, [e.target.name]: e.target.value
+        })
+    }
+        
+    const handleSubmit =  (e) => {
+        e.preventDefault();
     }
     
+
+// --------------WERSJA 1----------------
+
     const onChoose = e => {
-        e.preventDefault();
+        e.persist();
         setState({...state, curr: e.target.dataset.code})
     }
 
-    useEffect(() => {
-        if (state.curr && state.date) {
-            setState({...state, price: 21});
-        }}, [state.date, state.curr])
-    
+    useEffect(()=> {
+        if (state.date && state.curr) {
+            dispatch(getPrevPriceOfCurrAction(state.curr, state.date))
+            setState({...state, price: price}) 
+            // dispatch(getPrevPriceOfCurrAction(state.curr, state.date)).then(()=> setState({...state, price: price}) ) 
+        }
+    }, [state.curr, state.date])
+
+
+// --------------WERSJA 2---------------- -< podobnie do onChange----
+         
+    // const onChoose = e => {
+    //         e.persist();
+    //         if (state.date) {
+    //             dispatch(getPrevPriceOfCurrAction(e.target.dataset.code, state.date))
+    //             setState({...state, price: price, curr: e.target.dataset.code})
+    //         } else {setState({...state, curr: e.target.dataset.code})}
+    // }
+
     return (
         <StyledExchangeForm>
             <form onSubmit={handleSubmit}>

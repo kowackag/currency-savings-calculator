@@ -2,10 +2,14 @@ import types from './exchange.types';
 
 const initState = {
     latestPrice :'',
+
     prevPrice:{
         date:'',
-        rates:''
+        rates: {
+            USD: 111
+        }
     },
+
     error:'',
 }
 
@@ -15,6 +19,7 @@ const reducerAPI = (state=initState, action) => {
             return {...state, latestPrice: {...action.payload}, error: ''}
         }
         case types.LOAD_PREVCURR: {
+            console.log(action.payload.rates.PLN)
             return {...state, 
                 prevPrice: {date: action.payload.date, rates: {...action.payload.rates}}, error:''}
         }

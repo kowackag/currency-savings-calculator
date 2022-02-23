@@ -1,17 +1,15 @@
 import React, {useEffect} from 'react';
 import StyledWalletTable from './WalletTable.styled';
-import { useStorage } from '../../modules/localStorage/lsHooks';
 import {columnsNames} from './../../db';
 import { useSelector } from 'react-redux';
 
 
 const WalletTable = () => {
 
-    const [getItem, setItem] = useStorage();
-    const items = getItem('data')
+   
     useEffect(()=>{
       
-    },[items])
+    },[])
     
     const walletList = useSelector(state=> state.wallet);
  

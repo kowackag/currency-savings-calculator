@@ -7,7 +7,7 @@ const DefaultStyledDropdown = styled.div`
     --color-font: ${props=>props.theme.colorFont};
    
     position: relative;
-    height: 4rem;
+    
     border: 1px solid rgb(var(--color-line));
     background-color: white;
     font-size: 1.2rem;
@@ -16,6 +16,8 @@ const DefaultStyledDropdown = styled.div`
         position: relative;
         display:inline-block;
         padding: 1rem;
+        height: 4rem;
+        width:100%;
         outline: none;
         border: none;
         color: rgb(var(--color-font));

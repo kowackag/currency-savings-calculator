@@ -4,6 +4,7 @@ const DefaultStyledInput = styled.input`
     display:inline-block;
     padding: 1rem;
     height: 4rem;
+    width:100%;
     outline: none;
     border: 1px solid rgb(var(--color-line));
     background-color: white;

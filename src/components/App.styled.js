@@ -10,7 +10,7 @@ const DefaultStyledApp = styled.section`
     padding: 4rem;
     max-width:1000px;
     color: rgb(var(--color-font));
-    font-weight: bold;
+    
     & h1 {
         margin-bottom:2rem;
         text-align: center;

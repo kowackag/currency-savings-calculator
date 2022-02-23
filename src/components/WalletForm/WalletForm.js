@@ -1,13 +1,13 @@
 import React, {createContext, useEffect, useState} from 'react';
 import StyledExchangeForm from './WalletForm.styled';
-import {getLatesPriceOfCurrAction, getPrevPriceOfCurrAction, getExchangeCurrAction} from '../../modules/exchange.action';
+import {getLatesPriceOfCurrAction, getPrevPriceOfCurrAction, getExchangeCurrAction} from '../../modules/exchangeAPI/exchange.action';
 import { getToday } from '../../helpers';
 import { useDispatch, useSelector } from 'react-redux';
-import Input from './../Input/Input';
-import Button from './../Button/Button';
-import Submit from './../Submit/Submit';
-import Dropdown from './../Dropdown/Dropdown';
-import {currencyDB} from './../../db';
+import Input from '../Input/Input';
+import Button from '../Button/Button';
+import Submit from '../Submit/Submit';
+import Dropdown from '../Dropdown/Dropdown';
+import {currencyDB} from '../../db';
 
 const WalletForm = () => {
     const initState = {
@@ -16,11 +16,12 @@ const WalletForm = () => {
         date:'',
         price:''
     }
+
     const today = getToday();
     const [state, setState] = useState(initState);
     const dispatch = useDispatch();
-    const price = useSelector(props=>props.prevPrice.rates)[state.curr];
-    
+    const price = useSelector(props=>props.exchange.prevPrice.rates)['USD'];
+    console.log(price)
     const onChange = e => {
         e.preventDefault();
         setState({...state, [e.target.name]: e.target.value
@@ -39,13 +40,13 @@ const WalletForm = () => {
         setState({...state, curr: e.target.dataset.code})
     }
 
-    useEffect(()=> {
-        if (state.date && state.curr) {
-            dispatch(getPrevPriceOfCurrAction(state.curr, state.date))
-            setState({...state, price: price}) 
-            // dispatch(getPrevPriceOfCurrAction(state.curr, state.date)).then(()=> setState({...state, price: price}) ) 
-        }
-    }, [state.curr, state.date])
+    // useEffect(()=> {
+    //     if (state.date && state.curr) {
+    //         dispatch(getPrevPriceOfCurrAction(state.curr, state.date))
+    //         setState({...state, price: price}) 
+    //         // dispatch(getPrevPriceOfCurrAction(state.curr, state.date)).then(()=> setState({...state, price: price}) ) 
+    //     }
+    // }, [state.curr, state.date])
 
 
 // --------------WERSJA 2---------------- -< podobnie do onChange----

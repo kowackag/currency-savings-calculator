@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {getLatesPriceOfCurrAction, getPrevPriceOfCurrAction, getExchangeCurrAction} from '../modules/exchange.action';
-import WalletForm from './ExchangeForm/WalletForm';
+import {getLatesPriceOfCurrAction, getPrevPriceOfCurrAction, getExchangeCurrAction} from '../modules/exchangeAPI/exchange.action';
+import WalletForm from './WalletForm/WalletForm';
 import StyledApp from './App.styled';
-
+import WalletTable from './WalletTable/WalletTable';
 const App = () => {
     // const latestPrice = useSelector(props=>props.latestPrice);
 
@@ -12,6 +12,7 @@ const App = () => {
         <StyledApp>
             <h1>Kalkulator oszczędności walutowych</h1>
             <WalletForm/>
+            {/* <WalletTable/> */}
         </StyledApp>
 
     )

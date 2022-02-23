@@ -1,4 +1,4 @@
-import apiKey from './../../apiKey';
+import apiKey from './../../../apiKey';
 
 const url ='http://api.exchangeratesapi.io/v1/';
 

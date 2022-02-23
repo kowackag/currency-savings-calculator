@@ -11,7 +11,7 @@ export const errorsDB = [
    { code: 301, desc: 'No date has been specified.'},
    { code: 302, desc: 'An invalid date has been specified.'},
    { code: 403, desc: 'No or an invalid amount has been specified.'},
-]
+];
    
 
 export const currencyDB = [
@@ -33,4 +33,6 @@ export const currencyDB = [
    {code: 'SEK', name: 'Korona szwedzka'},
    {code: 'UAH', name: 'Hrywna'},
    {code: 'USD', name: 'Dolar amerykański'}
-]
+];
+
+export const columnsNames = ['Waluta', 'Ilość', 'Data Zakupu', 'Cena Zakupu', 'Obecny kurs', 'Obecna wartość', 'Zysk/Strata'];

@@ -12,7 +12,7 @@ const App = () => {
         <StyledApp>
             <h1>Kalkulator oszczędności walutowych</h1>
             <WalletForm/>
-            {/* <WalletTable/> */}
+            <WalletTable/>
         </StyledApp>
 
     )

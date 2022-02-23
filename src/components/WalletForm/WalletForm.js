@@ -1,6 +1,7 @@
 import React, {createContext, useEffect, useState} from 'react';
 import StyledExchangeForm from './WalletForm.styled';
 import {getLatesPriceOfCurrAction, getPrevPriceOfCurrAction, getExchangeCurrAction} from '../../modules/exchangeAPI/exchange.action';
+import { addToWalletAction } from '../../modules/wallet/wallet.action';
 import { getToday } from '../../helpers';
 import { useDispatch, useSelector } from 'react-redux';
 import Input from '../Input/Input';
@@ -8,20 +9,26 @@ import Button from '../Button/Button';
 import Submit from '../Submit/Submit';
 import Dropdown from '../Dropdown/Dropdown';
 import {currencyDB} from '../../db';
+import {useStorage} from './../../modules/localStorage/lsHooks'
+import {v4 as uuid} from 'uuid';
 
 const WalletForm = () => {
     const initState = {
+        id: '',
         curr: '', 
         amount: 0, 
         date:'',
         price:''
     }
+    // const [getItem, setItem] = useStorage();
 
     const today = getToday();
     const [state, setState] = useState(initState);
+    const [error, setError] = useState([]);
     const dispatch = useDispatch();
-    const price = useSelector(props=>props.exchange.prevPrice.rates)['USD'];
-    console.log(price)
+    const prices = useSelector(props=>props.exchange.prevPrice.rates);
+    const price = (prices['PLN']/prices[state.curr]).toFixed(4);
+
     const onChange = e => {
         e.preventDefault();
         setState({...state, [e.target.name]: e.target.value
@@ -30,34 +37,24 @@ const WalletForm = () => {
         
     const handleSubmit =  (e) => {
         e.preventDefault();
+        dispatch(addToWalletAction({...state, id:uuid()}))
     }
     
-
-// --------------WERSJA 1----------------
-
     const onChoose = e => {
         e.persist();
         setState({...state, curr: e.target.dataset.code})
     }
 
-    // useEffect(()=> {
-    //     if (state.date && state.curr) {
-    //         dispatch(getPrevPriceOfCurrAction(state.curr, state.date))
-    //         setState({...state, price: price}) 
-    //         // dispatch(getPrevPriceOfCurrAction(state.curr, state.date)).then(()=> setState({...state, price: price}) ) 
-    //     }
-    // }, [state.curr, state.date])
+    useEffect(()=> {
+        if (state.date && state.curr) {
+            dispatch(getPrevPriceOfCurrAction(state.curr, state.date))
+        }
+    }, [state.curr, state.date])
 
+    useEffect(()=> {
+        setState({...state, price: price}) 
+    }, [price])
 
-// --------------WERSJA 2---------------- -< podobnie do onChange----
-         
-    // const onChoose = e => {
-    //         e.persist();
-    //         if (state.date) {
-    //             dispatch(getPrevPriceOfCurrAction(e.target.dataset.code, state.date))
-    //             setState({...state, price: price, curr: e.target.dataset.code})
-    //         } else {setState({...state, curr: e.target.dataset.code})}
-    // }
 
     return (
         <StyledExchangeForm>
@@ -76,7 +73,7 @@ const WalletForm = () => {
                 </div>
                 <div className="box">
                     <label htmlFor="price">Cena zakupu</label>
-                    <Input type="number" step=".001" id="price" onChange={onChange} name="price" value={state.price}/>
+                    <Input type="number" step=".0001" id="price" onChange={onChange} name="price" value={state.price}/>
                 </div>
                 <Button onClick={()=>setState(initState)}>Wyczyść</Button>
                 <Submit type="submit" value="Dodaj">Dodaj</Submit>

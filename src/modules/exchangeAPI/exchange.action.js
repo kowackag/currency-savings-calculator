@@ -2,7 +2,6 @@ import {getLatesPriceOfCurrAPI, getPrevPriceOfCurrAPI, exchangeCurrAPI} from './
 import types from './exchange.types';
 
 export const loadPriceOfCurrAction = payload => {
-    console.log(payload)
     return {
         type: types.LOAD_CURR,
         payload: payload.rates

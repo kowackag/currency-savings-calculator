@@ -16,8 +16,8 @@ const validateData = ({curr, price, date, amount}) => {
         errors = { ...errors, ...copyErrors};
     }
 
-    if (Number(price) <0) {
-        const copyErrors = {priceErr:'Cena nie może byc mniejsza od 0'};
+    if (Number(price) <= 0) {
+        const copyErrors = {priceErr:'Cena musi być wyższa od 0'};
         errors = { ...errors, ...copyErrors};
     }
 

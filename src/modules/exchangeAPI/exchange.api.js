@@ -13,12 +13,13 @@ const handleErrors = (resp) => {
 }
 
 export const getLatesPriceOfCurrAPI = (curr)=> {
-    return fetch(`${url}latest?access_key=${apiKey}&symbols=${curr}`)
+    return fetch(`${url}latest?access_key=${apiKey}&symbols=${curr},PLN`)
     .then(resp => handleErrors(resp))
     .then(resp=>resp.json())
 }
 
 export const getPrevPriceOfCurrAPI = (curr, date) => {
+    
     return fetch(`${url}${date}?access_key=${apiKey}&symbols=${curr},PLN`)
         .then(resp => handleErrors(resp) )
         .then(resp=>resp.json())

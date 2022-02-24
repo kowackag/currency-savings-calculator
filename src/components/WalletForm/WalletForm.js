@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import StyledExchangeForm from './WalletForm.styled';
-import {getLatesPriceOfCurrAction, getPrevPriceOfCurrAction} from '../../modules/exchangeAPI/exchange.action';
+import {getPrevPriceOfCurrAction} from '../../modules/exchangeAPI/exchange.action';
 import { addToWalletAction } from '../../modules/wallet/wallet.action';
 import { getToday } from '../../helpers';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,10 +17,9 @@ const WalletForm = () => {
         curr: '', 
         amount: 0, 
         date:'',
-        price:''
+        price:0
     }
-    // const [getItem, setItem] = useStorage();
-
+    
     const today = getToday();
     const [state, setState] = useState(initState);
     
@@ -45,9 +44,7 @@ const WalletForm = () => {
         e.preventDefault();
         const err = validateData(state);
         setError({...err})
-        console.log(Object.keys(err).length)
         if (Object.keys(err).length === 0) {
-            console.log('ddd')
             dispatch(addToWalletAction({...state, id:uuid()}));
             setState(initState);
         } 
@@ -89,7 +86,7 @@ const WalletForm = () => {
                 </div>
                 <div className="box">
                     <label className="label" htmlFor="price">Cena zakupu</label>
-                    <Input type="number" step=".00001" id="price" onChange={onChange} name="price" min="0" value={state.price}/>
+                    <Input type="number" step=".000001" id="price" onChange={onChange} name="price" min="0" value={state.price}/>
                     {priceErr&&<p className="err">{priceErr}</p>}
                 </div>
                 <Button onClick={()=>setState(initState)}>Wyczyść</Button>

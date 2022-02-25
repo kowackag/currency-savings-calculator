@@ -21,6 +21,8 @@ const WalletTable = () => {
         value: (getLatestPrice(item.curr)*item.amount).toFixed(2),
         profit: ((getLatestPrice(item.curr)*item.amount).toFixed(2)-(item.amount*item.price)).toFixed(2)
     }))
+
+    const sumProfit = (copyWalletList.reduce((sum, {profit}) => sum + Number(profit), 0)).toFixed(2);
    
     const handleClick = e => {
         e.preventDefault();
@@ -31,8 +33,8 @@ const WalletTable = () => {
     useEffect(()=>{
         let currList = []
         walletList.forEach(({curr}) => currList.push(curr));
-        // dispatch(getLatesPriceOfCurrAction(currList.join()));
-    },[])
+        dispatch(getLatesPriceOfCurrAction(currList.join()));
+    },[walletList])
   
 
 
@@ -55,11 +57,14 @@ const WalletTable = () => {
                         <td>{latestPrice}</td>
                         <td>{value}</td>
                         <td>{profit}</td>
-                        <td><Button onClick={handleClick} id={id}>Usuń</Button></td>
+                        <td><Button className="btn-remove" onClick={handleClick} id={id}>Usuń</Button></td>
                     </tr>)}
                 </tbody>
                 <tfoot>
-                    <tr></tr>
+                    <tr> 
+                        <td colSpan="6">Oszczędności</td>
+                        <td className="sum-profit" colSpan="2">{sumProfit} PLN</td>
+                    </tr>
                 </tfoot>
             </table>}
         </StyledWalletTable>   

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 const DefaultStyledButton = styled.div`
     grid-column: 1/2;
@@ -13,7 +13,7 @@ const DefaultStyledButton = styled.div`
     cursor: pointer;
 
     &::before {
-        content: 'Wyczyść';
+        content: '${props=>props.children}';
         position: absolute;
         top:0;
         bottom:0;

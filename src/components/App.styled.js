@@ -8,7 +8,7 @@ const DefaultStyledApp = styled.section`
     --color-line: ${props=>props.theme.colorLine};
     
     padding: 4rem;
-    max-width:1000px;
+    max-width:1200px;
     color: rgb(var(--color-font));
     
     & h1 {

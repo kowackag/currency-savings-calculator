@@ -22,22 +22,16 @@ const WalletForm = () => {
     
     const today = getToday();
     const [state, setState] = useState(initState);
+    const [error, setError] = useState({});
+    const {currErr,amountErr, dateErr, priceErr} = error;
     
     const dispatch = useDispatch();
     const prices = useSelector(props=>props.exchange.prevPrice.rates);
     const price = (prices['PLN']/prices[state.curr]).toFixed(6);
     
-    const [error, setError] = useState({});
-    const {currErr,amountErr, dateErr, priceErr} = error;
-    
     const onChange = e => {
         e.preventDefault(); 
-        if (e.target.name === 'date')  {
-            const err = validateData({[e.target.name]: e.target.value});
-            setError({...err});
-        }
-        setState({...state, [e.target.name]: e.target.value
-        })
+        setState({...state, [e.target.name]: e.target.value})
     }
         
     const handleSubmit =  (e) => {

@@ -7,7 +7,6 @@ const walletReducer = (state=initState, action) => {
         case types.ADD_TO_WALLET: 
             return [...state, action.payload];
         case types.REMOVE_FROM_WALLET: 
-            console.log(action.payload)
             return [...state.filter(item=>item.id !== action.payload)];
         default: 
         return state;

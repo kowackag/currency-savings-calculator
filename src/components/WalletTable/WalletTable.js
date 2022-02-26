@@ -26,7 +26,6 @@ const WalletTable = () => {
    
     const handleClick = e => {
         e.preventDefault();
-        console.log(e.target)
         dispatch(removeFromWalletAction(e.target.dataset.id))
     }
    

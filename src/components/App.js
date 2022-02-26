@@ -5,9 +5,6 @@ import WalletForm from './WalletForm/WalletForm';
 import StyledApp from './App.styled';
 import WalletTable from './WalletTable/WalletTable';
 const App = () => {
-    // const latestPrice = useSelector(props=>props.latestPrice);
-
-    // console.log(latestPrice)
     return(
         <StyledApp>
             <h1>Kalkulator oszczędności walutowych</h1>

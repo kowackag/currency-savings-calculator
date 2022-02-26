@@ -36,8 +36,6 @@ const WalletTable = () => {
         dispatch(getLatesPriceOfCurrAction(currList.join()));
     },[walletList])
   
-
-
     return (
         <StyledWalletTable>
             {walletList.length>0 && <table>

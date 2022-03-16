@@ -24,7 +24,7 @@ const DefaultStyledWalletTable = styled.div`
     }
 
     & tfoot {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         font-weight: bold;  
         & .sum-profit {
             font-size:2.5rem;

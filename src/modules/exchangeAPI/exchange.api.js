@@ -18,13 +18,13 @@ export const getLatesPriceOfCurrAPI = (curr)=> {
 
 export const getPrevPriceOfCurrAPI = (curr, date) => {
     
-    return fetch(`${url}${date}?access_key=${apiKey}&symbols=${curr},PLN`)
+    return fetch(`${url}${date}?access_key=4570ac1e4dc6c35eb46391296b03ad64&symbols=${curr},PLN`)
         .then(resp => handleErrors(resp) )
         .then(resp=>resp.json())
 }
 
 export const exchangeCurrAPI = (fromCurr, toCurr, amount) => {
-    return fetch(`${url}convert?access_key=${apiKey}&from=${fromCurr}&to=${toCurr}&amount=${amount}`)
+    return fetch(`${url}convert?access_key=apiKey4570ac1e4dc6c35eb46391296b03ad64&from=${fromCurr}&to=${toCurr}&amount=${amount}`)
         .then(resp => handleErrors(resp))
         .then(resp=>resp.json())
 }

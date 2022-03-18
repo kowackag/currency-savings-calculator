@@ -1,6 +1,4 @@
-import apiKey from './../../../apiKey';
-
-const url ='http://api.exchangeratesapi.io/v1/';
+const url ='//api.exchangeratesapi.io/v1/';
 
 const handleErrors = (resp) => {
     if (!resp.ok) {
@@ -13,7 +11,7 @@ const handleErrors = (resp) => {
 }
 
 export const getLatesPriceOfCurrAPI = (curr)=> {
-    return fetch(`${url}latest?access_key=${apiKey}&symbols=${curr},PLN`)
+    return fetch(`${url}latest?access_key=4570ac1e4dc6c35eb46391296b03ad64&symbols=${curr},PLN`)
     .then(resp => handleErrors(resp))
     .then(resp=>resp.json())
 }

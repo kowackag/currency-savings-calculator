@@ -1,0 +1,9 @@
+{
+  "projectName": "currency-savings-calculator",
+  "meta": {
+    "type": "frontend"
+  },
+  "packageManager": "npm",
+  "hash": "97df3e8c",
+  "domain": "currency-savings-calculator.mdbgo.io"
+}

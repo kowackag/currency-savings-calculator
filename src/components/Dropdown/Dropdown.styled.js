@@ -1,13 +1,7 @@
 import styled, {css} from 'styled-components';
 
-const DefaultStyledDropdown = styled.div`
-    --color-alfa: ${props=>props.theme.colorBgc};
-    --color-beta: ${props=>props.theme.colorShadowDark};
-    --color-gamma: ${props=>props.theme.colorShadowLight};
-    --color-font: ${props=>props.theme.colorFont};
-   
+const StyledDropdown = styled.div`
     position: relative;
-    
     border: 1px solid rgb(var(--color-line));
     background-color: white;
     font-size: 1.2rem;
@@ -39,6 +33,5 @@ const DefaultStyledDropdown = styled.div`
         cursor: pointer;
     }
 `
-const StyledDropdown = styled(DefaultStyledDropdown)(props=>props.style);
 
 export default StyledDropdown;

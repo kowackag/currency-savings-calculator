@@ -59,8 +59,9 @@ const WalletTable = () => {
                 </tbody>
                 <tfoot>
                     <tr> 
-                        <td colSpan="6">Łączny Zysk/Strata</td>
+                        <td colSpan="5">Łączny Zysk/Strata</td>
                         <td className="sum-profit" colSpan="2">{sumProfit} PLN</td>
+                        <td ></td>
                     </tr>
                 </tfoot>
             </table>}

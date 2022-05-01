@@ -7,7 +7,7 @@ const validateData = ({curr, price, date, amount}) => {
     }
 
     if (amount == '') {
-        const copyErrors = {amountErr:'Podaj ilość zakupionej waluty'};
+        const copyErrors = {amountErr:'Podaj ilość waluty'};
         errors = { ...errors, ...copyErrors};
     }
 
@@ -28,7 +28,7 @@ const validateData = ({curr, price, date, amount}) => {
 
     const regDate = /(1999|20[0-9]{2})-(0[1-9]|1[0-2])-(0[0-9]|[12][0-9]|3[01])/;
     if (!regDate.test(date)) {
-        const copyErrors = {dateErr: 'Podaj datę zakupu po 01.01.1999'};
+        const copyErrors = {dateErr: 'Podaj datę po 1999'};
         errors = {...errors, ...copyErrors};
     }
 

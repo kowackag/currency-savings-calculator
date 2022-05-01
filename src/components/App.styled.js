@@ -1,14 +1,8 @@
 import styled from 'styled-components';
 
-const DefaultStyledApp = styled.section`
-    --color-bgcDark: ${props=>props.theme.colorBgcDark};
-    --color-bgcLight: ${props=>props.theme.colorBgcLight};
-    --color-fontDark: ${props=>props.theme.colorFontDark};
-    --color-font: ${props=>props.theme.colorFont};
-    --color-line: ${props=>props.theme.colorLine};
-    
-    padding: 4rem;
+const StyledApp = styled.section`
     max-width:1200px;
+    padding: 2rem 0;
     color: rgb(var(--color-font));
     
     & h1 {
@@ -16,8 +10,10 @@ const DefaultStyledApp = styled.section`
         text-align: center;
         color: rgb(var(--color-Contrast));
     }
-`
 
-const StyledApp = styled(DefaultStyledApp)(props=>props.style);
+    @media(min-width:762px) {
+        padding: 4rem;
+    }
+`
 
 export default StyledApp;

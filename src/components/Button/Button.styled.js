@@ -1,6 +1,6 @@
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 
-const DefaultStyledButton = styled.div`
+const StyledButton = styled.div`
     grid-column: 1/2;
     padding: 1rem;
     border: 1px solid rgb(var(--color-line));
@@ -32,7 +32,5 @@ const DefaultStyledButton = styled.div`
         opacity:1;
     }
 `
-
-const StyledButton = styled(DefaultStyledButton)(props=>props.style);
 
 export default StyledButton;

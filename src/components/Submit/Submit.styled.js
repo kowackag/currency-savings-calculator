@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const DefaultStyledSubmit = styled.label`
+const StyledSubmit = styled.label`
     grid-column: 4/5;
     padding: 1rem;
     border: 2px solid rgb(var(--color-font));
@@ -42,10 +42,6 @@ const DefaultStyledSubmit = styled.label`
         opacity:1;
     }
 
-
 `
-
-const StyledSubmit = styled(DefaultStyledSubmit)(props=>props.style);
-
 export default StyledSubmit;
 

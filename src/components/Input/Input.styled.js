@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const DefaultStyledInput = styled.input`
-    display:inline-block;
+const StyledInput = styled.input`
+    display:block;
     padding: 1rem;
     height: 4rem;
     width:100%;
@@ -15,6 +15,5 @@ const DefaultStyledInput = styled.input`
         -webkit-text-fill-color: rgb(var(--color-font)) !important;
     }
 `
-const StyledInput = styled(DefaultStyledInput)(props=>props.style);
 
 export default StyledInput;

@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-const DefaultStyledWalletTable = styled.div`
-    padding: 4rem;
+const StyledWalletTable = styled.div`
+    padding: 2rem 0;
     border: solid 1px rgb(var(--color-line));
+    font-size:1.4rem;
 
     & table {
         margin: 0 auto;
@@ -23,6 +24,13 @@ const DefaultStyledWalletTable = styled.div`
         border: solid 1px rgb(var(--color-line));
     }
 
+    & td, th{
+        padding:0.4rem;
+    }
+    & td:last-child, th:last-child{
+        display:none;
+    }
+
     & tfoot {
         font-size: 1.8rem;
         font-weight: bold;  
@@ -35,9 +43,14 @@ const DefaultStyledWalletTable = styled.div`
     & .btn-remove {
         margin: 0.5rem;
     } 
+
+    @media(min-width: 762px) {
+        padding: 3rem;
+        font-size:1.4rem;
+        & td:last-child, th:last-child{
+            display:table-cell;
+        }
+    }
     
 `
-
-const StyledWalletTable = styled(DefaultStyledWalletTable)(props=>props.style)
-
 export default StyledWalletTable;

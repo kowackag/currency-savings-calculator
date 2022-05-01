@@ -35,4 +35,4 @@ export const currencyDB = [
    {code: 'USD', name: 'Dolar amerykański'}
 ];
 
-export const columnsNames = ['Waluta', 'Ilość', 'Data Zakupu', 'Cena Zakupu', 'Obecny kurs', 'Obecna wartość', 'Zysk/Strata'];
+export const columnsNames = ['Waluta', 'Ilość', 'Data Zakupu', 'Cena Zakupu', 'Obecny kurs', 'Obecna wartość', 'Zysk/ Strata'];

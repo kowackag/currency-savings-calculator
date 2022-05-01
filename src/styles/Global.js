@@ -7,16 +7,20 @@ import robotoItalicWoff2 from "./../fonts/roboto-italic-webfont.woff2";
 import robotoItalicWoff from "./../fonts/roboto-italic-webfont.woff";
 
 const GlobalStyle = createGlobalStyle`
-    --color-font: ${props=>props.theme.colorFont};
-    --color-alfa: ${props=>props.theme.colorBgc};
-    --color-beta: ${props=>props.theme.colorShadowDark};
-    --color-gamma: ${props=>props.theme.colorShadowLight};
-    --color-contrast:${props=>props.theme.colorContrast};
+    :root{
+        --color-bgcDark: ${props=>props.theme.colorBgcDark};
+        --color-bgcLight: ${props=>props.theme.colorBgcLight};
+        --color-fontDark: ${props=>props.theme.colorFontDark};
+        --color-font: ${props=>props.theme.colorFont};
+        --color-line: ${props=>props.theme.colorLine};
+    }
+
     @font-face {
         font-family: "Roboto";
         font-style: regular;
         font-weight: 400;
         src:
+
         url(${robotoRegularWoff2}) format('woff2'),
         url(${robotoRegularWoff}) format('woff');
     }

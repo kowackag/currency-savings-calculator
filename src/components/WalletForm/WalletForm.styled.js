@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
-const DefaultStyledWalletForm = styled.section`
+const StyledWalletForm = styled.section`
     background-color: rgb(var(--color-bgcDark));
-    padding: 3rem;
+    padding: 1rem;
     border: 1px solid rgb(var(--color-line));
     border-bottom: none;
 
     & form {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        column-gap: 2rem;
+        column-gap: 1rem;
         row-gap: 2rem;
     }
 
@@ -33,8 +33,9 @@ const DefaultStyledWalletForm = styled.section`
         }
     }
 
+    @media(min-width: 762px) {
+        padding: 3rem;
+    }
+
 `
-
-const StyledWalletForm = styled(DefaultStyledWalletForm)(props=>props.style)
-
 export default StyledWalletForm;

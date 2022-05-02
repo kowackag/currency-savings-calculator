@@ -25,7 +25,7 @@ const StyledWalletTable = styled.div`
     }
 
     & td, th{
-        padding:0.4rem;
+        padding:0.35rem;
     }
     & td:last-child, th:last-child{
         display:none;

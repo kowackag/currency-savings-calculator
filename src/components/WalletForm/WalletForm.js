@@ -69,8 +69,8 @@ const WalletForm = () => {
                     {amountErr&&<p className="err">{amountErr}</p>}
                 </div>
                 <div className="box">
-                    <label className="label" >Waluta</label>
-                    <Dropdown items={currencyDB} onChange={onChoose} name="curr" value={state.curr}/>
+                    <label className="label">Waluta
+                    <Dropdown id="currency" items={currencyDB} onChange={onChoose} name="curr" value={state.curr}/></label>
                     {currErr&&<p className="err">{currErr}</p>}
                 </div>
                 <div className="box">

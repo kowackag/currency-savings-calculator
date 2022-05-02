@@ -2,7 +2,7 @@ const validateData = ({curr, price, date, amount}) => {
     let errors = {}
    
     if (Number(amount) <= 0) {
-        const copyErrors = {amountErr:'Ilość  musi być wyższa od 0'};
+        const copyErrors = {amountErr:'Ilość musi być wyższa od 0'};
         errors = { ...errors, ...copyErrors};
     }
 

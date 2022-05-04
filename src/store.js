@@ -7,7 +7,6 @@ const preloadedState = JSON.parse(localStorage.getItem('savings')) || undefined;
 
 const store = createStore(reducers,preloadedState, composeWithDevTools(applyMiddleware(thunk)));
 
-
 store.subscribe(()=>{
     const state = store.getState();
     localStorage.setItem('savings', JSON.stringify(state))

@@ -36,11 +36,10 @@ The challenge was to create calculator that will count the potential profit or l
 The user is to be able to enter the type, quantity and data of purchase of currency. The purchase price is refileled automatically using API with possibility to modify this price.
 
 The data are display in table with simultaneous comparision purchace prices with current ones using API. The sum of potential profit or loss is counted.
-- 
 
 &nbsp;
 
-![](./public/screen2.jpg)
+![](./public/Screen2.jpg)
 
 ### **Installation 💿**
 

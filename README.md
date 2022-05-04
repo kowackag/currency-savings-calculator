@@ -39,7 +39,7 @@ The data are display in table with simultaneous comparision purchace prices with
 
 &nbsp;
 
-![](./public/Screen2.jpg)
+![](./public/screen-calc.jpg)
 
 ### **Installation 💿**
 

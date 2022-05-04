@@ -37,8 +37,6 @@ The user is to be able to enter the type, quantity and data of purchase of curre
 
 The data are display in table with simultaneous comparision purchace prices with current ones using API. The sum of potential profit or loss is counted.
 
-&nbsp;
-
 ![](./public/screen-calc.jpg)
 
 ### **Installation 💿**
@@ -125,7 +123,7 @@ const GlobalStyle = createGlobalStyle
 
  &nbsp;
 
-The data (cuuency price) are loaded from API, communication is based on `fetch()` method. Data during working app are saved and store in [localStorage](http://kursjs.pl/kurs/storage/storage.php) built into a web browser. The state is managed with Redux, using a separate storage for `localStorage` data and for the `API`. Combine it with `.combineReducers()`
+The data (currency price) are loaded from API, communication is based on `fetch()` method. Data during working app are saved and store in [localStorage](http://kursjs.pl/kurs/storage/storage.php) built into a web browser. The state is managed with Redux, using a separate storage for `localStorage` data and for the `API`. Combine it with `.combineReducers()`
 
 ```
 const reducers = combineReducers({

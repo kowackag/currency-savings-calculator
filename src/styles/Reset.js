@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const ResetStyle = createGlobalStyle`
     * {
@@ -6,5 +6,5 @@ const ResetStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
-`
+`;
 export default ResetStyle;

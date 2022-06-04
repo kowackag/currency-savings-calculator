@@ -1,18 +1,18 @@
-import {createGlobalStyle} from 'styled-components';
-import robotoRegularWoff from "./../fonts/roboto-regular-webfont.woff";
-import robotoRegularWoff2 from "./../fonts/roboto-regular-webfont.woff2";
-import robotoBoldWoff from "./../fonts/roboto-bold-webfont.woff";
-import robotoBoldWoff2 from "./../fonts/roboto-bold-webfont.woff2";
-import robotoItalicWoff2 from "./../fonts/roboto-italic-webfont.woff2";
-import robotoItalicWoff from "./../fonts/roboto-italic-webfont.woff";
+import { createGlobalStyle } from 'styled-components';
+import robotoRegularWoff from './../fonts/roboto-regular-webfont.woff';
+import robotoRegularWoff2 from './../fonts/roboto-regular-webfont.woff2';
+import robotoBoldWoff from './../fonts/roboto-bold-webfont.woff';
+import robotoBoldWoff2 from './../fonts/roboto-bold-webfont.woff2';
+import robotoItalicWoff2 from './../fonts/roboto-italic-webfont.woff2';
+import robotoItalicWoff from './../fonts/roboto-italic-webfont.woff';
 
 const GlobalStyle = createGlobalStyle`
     :root{
-        --color-bgcDark: ${props=>props.theme.colorBgcDark};
-        --color-bgcLight: ${props=>props.theme.colorBgcLight};
-        --color-fontDark: ${props=>props.theme.colorFontDark};
-        --color-font: ${props=>props.theme.colorFont};
-        --color-line: ${props=>props.theme.colorLine};
+        --color-bgcDark: ${(props) => props.theme.colorBgcDark};
+        --color-bgcLight: ${(props) => props.theme.colorBgcLight};
+        --color-fontDark: ${(props) => props.theme.colorFontDark};
+        --color-font: ${(props) => props.theme.colorFont};
+        --color-line: ${(props) => props.theme.colorLine};
     }
 
     @font-face {
@@ -51,6 +51,6 @@ const GlobalStyle = createGlobalStyle`
         color: rgb(var(--color-font));
         line-height:1.5;
     }
-`
+`;
 
 export default GlobalStyle;

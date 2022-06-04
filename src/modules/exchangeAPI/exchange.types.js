@@ -3,9 +3,11 @@ const LOAD_EXCHANGE = 'loadExchangeCurrency';
 const SET_ERROR = 'setErrors';
 const LOAD_PREVCURR = 'loadPrevCurrency';
 
-export default {
-    LOAD_CURR,
-    LOAD_PREVCURR,
-    LOAD_EXCHANGE,
-    SET_ERROR,
-}
+const types = {
+  LOAD_CURR,
+  LOAD_PREVCURR,
+  LOAD_EXCHANGE,
+  SET_ERROR,
+};
+
+export default types;
